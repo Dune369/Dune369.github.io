@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jekyll:install": "bundle install",
-    "start": "jekyll serve"
+    "bookshop": "bookshop-browser",
+    "jekyll:install": "BUNDLE_GEMFILE=site/Gemfile bundle install",
+    "bookshop-dev": "bookshop-browser -p 6086 -b ./component-library",
+    "bookshop-hosted": "bookshop-browser -b ./component-library -o site/js/bookshop-hosted.js",
+    "bookshop-live": "bookshop-live -b ./component-library -o site/_cloudcannon/bookshop-live.js",
+    "jekyll": "BUNDLE_GEMFILE=site/Gemfile bundle exec jekyll serve --source site --port 6060 --trace --unpublished",
+    "start": "run-p bookshop jekyll"
   },
   "author": "Dinar",
   "license": "ISC",
